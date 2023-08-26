@@ -1,19 +1,21 @@
+// variables: 
+let cantGanadaComputadora=0;
+let cantGanadaUsuario=0;
 const opcinesJuego=["piedra","papel","tijeras"];
 const posibleJugada=["Empate","Gana la computadora","Gana el usuario"];
-//Cantidad de jugada
-const numeroJugada=5;
-//Funcion de la Computadora
+const nombreJugador=document.getElementById("nombre");
+
+let eleccionPiedra=document.getElementById("piedra");
+let eleccionPapel=document.getElementById("papel");
+let eleccionTijera=document.getElementById("tijera");
+
+// Funcion de la Computadora
 function obtenerJugadaComputadora(){
     let jugadaObtenida;
     jugadaObtenida=Math.floor(Math.random()*3);
     return opcinesJuego[jugadaObtenida];
 }
-//Función del Usuario
-function obtenerJugadaUsuario(){
-    let jugadaIngresada=document.getElementById("eleccion").value;  
-    return jugadaIngresada;
-}
-//Fución Ganador
+// Fución Ganador
 function determinarGanador(jugadaComputadora,jugadaUsuario){
     let resultado;
     if((jugadaComputadora===opcinesJuego[0]&&jugadaUsuario===opcinesJuego[2])||
@@ -29,38 +31,47 @@ function determinarGanador(jugadaComputadora,jugadaUsuario){
     }
     return resultado;
 }
-//funcíon jugar Piedra Papel o Tijera()
-function jugarPiedraPapelTijera(){
-    let cantGanadaComputadora=0;
-    let cantGanadaUsuario=0;
-    let jugadaUsuario;
-    let jugadaComputadora
-    let ganador;
-    //este for juega con la computadora hasta numeroJugada=5
-    for(let i=0;i<numeroJugada;i++){
-        //Variable de cada jugada
-        jugadaUsuario = obtenerJugadaUsuario();  
-        jugadaComputadora = obtenerJugadaComputadora();
-        //imprimir la jugada
-        console.log("La computadora eligio: "+jugadaComputadora);
-        console.log("El usuario eligio: "+jugadaUsuario);
-        //variable de quien gano
-        ganador=determinarGanador(jugadaComputadora,jugadaUsuario);
-        if(ganador===posibleJugada[1]){
-            cantGanadaComputadora+=1;
-        }else if(ganador===posibleJugada[2]){
-            cantGanadaUsuario+=1;
-        }
-        document.getElementById("jugada").innerHTML="La computadora: "+cantGanadaComputadora+" y el usuario: "+cantGanadaUsuario;
+// Función jugar Piedra Papel o Tijera()
+function jugarPiedraPapelTijera(jugadaUsuario){
+    
+    //Validación de Campo Nombre del usuario
+    if(nombreJugador.value==""){
+        alert("Error Debe ingresar un nombre al usuario");
+        return;
     }
-    if(cantGanadaComputadora>cantGanadaUsuario){
-        ganador=posibleJugada[1];
-    }else if(cantGanadaUsuario>cantGanadaComputadora){
-        ganador=posibleJugada[2];
-    }else{
-        ganador=posibleJugada[0];
+    //Variables locales de la Fución
+    let ganadorPrevio;
+    let jugadaComputadora= obtenerJugadaComputadora();       
+    //imprimir la jugada
+    document.getElementById("jugadaPC").innerHTML="La computadora eligio: "+jugadaComputadora;
+    document.getElementById("jugadaUsuario").innerHTML="El usuario eligio: "+jugadaUsuario;
+   //variable de quien gano
+   ganadorPrevio=determinarGanador(jugadaComputadora,jugadaUsuario);
+   if(ganadorPrevio===posibleJugada[1]){
+       cantGanadaComputadora+=1;
+   }else if(ganadorPrevio===posibleJugada[2]){
+       cantGanadaUsuario+=1;
+   }
+   document.getElementById("jugada").innerHTML="La computadora: "+cantGanadaComputadora+" y el usuario: "+cantGanadaUsuario;
+   if(cantGanadaComputadora===3){
+   
+        document.getElementById("resultado").innerHTML="Perdiste el juego "+ nombreJugador.value +" Para la proxima";
+    } 
+    if(cantGanadaUsuario===3){
+        
+        document.getElementById("resultado").innerHTML="Ganaste "+ nombreJugador.value +" Felicitaciones...!!!"
     }
-   document.getElementById("resultado").innerHTML="El resultado fue: "+ganador;
 }
-//llamado de la función jugarPiedraPapelTijera()
-document.getElementById("jugar").addEventListener("click",jugarPiedraPapelTijera)
+
+    // Eleccion del Usuario
+
+    eleccionPiedra.addEventListener("click",()=>{
+         jugarPiedraPapelTijera(opcinesJuego[0]);
+    })
+    eleccionPapel.addEventListener("click",()=>{
+        jugarPiedraPapelTijera(opcinesJuego[1]);
+    })
+    eleccionTijera.addEventListener("click",()=>{
+        jugarPiedraPapelTijera(opcinesJuego[2]);
+    })
+    

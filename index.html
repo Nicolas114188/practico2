@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/practico2/assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Piedra Papel o Tijera</title>
 </head>
 <body>
     <h1>Piedra Papel o Tijera</h1>
-    <label>Nombre del jugador: <input type="text"></label>
+    
+    <p>Nombre del jugador: </p>
+    <input id="nombre" type="text">
     <br>
     <br>
     <label>Para este juego elija piedra, papel o tijera:</label>
     <br>
-    <br>
-    <br>
     <div class="contenedor">
-        <div class="item item-1">
-            <img id="piedra" src="/practico2/assets/img/piedra.jpg">
-        </div>
-        <div class="item item-2">
-            <img id="papel" src="/practico2/assets/img/papel.jpg">
-        </div>  
-        <div class="item item-3">
-            <img id="tijera" src="/practico2/assets/img/tijera.jpg">
-        </div>
-        <div class="item-4">
-            <select id="eleccion">
-                <option value="piedra">piedra</option>
-                <option value="papel">papel</option>
-                <option value="tijeras">tijeras</option>
-            </select>   
-        </div>
-    </div> 
-    <button id="jugar">Jugar</button>
+       <div id="grupo-btn">
+            <button id="piedra" type="button">
+                <img src="assets/img/piedra.jpg">
+            </button>
+            <button id="papel" type="button">
+                <img src="assets/img/papel.jpg">
+            </button>
+            <button id="tijera" type="button">
+                <img src="assets/img/tijera.jpg">
+            </button>
+            <button id="resetiar" type="reset">
+                <img src="assets/img/Resetiar.jpg">
+            </button>
+       </div>
+    </div>
+    <br>
+    <p id="jugadaPC"></p>
+    <p id="jugadaUsuario"></p>
     <p id="jugada"></p>
-    <p>El Ganador es:</p>
     <p id="resultado"></p>
     <script src="/practico2/assets/js/piedraPapelTijeras.js"></script>
 </body>
