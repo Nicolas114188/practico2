@@ -63,6 +63,13 @@ function jugarPiedraPapelTijera(jugadaUsuario){
     }
 }
 
+function reinicioJuego(){
+    document.getElementById("jugadaPC").innerHTML="";
+    document.getElementById("jugadaUsuario").innerHTML="";
+    document.getElementById("jugada").innerHTML="";
+    document.getElementById("resultado").innerHTML="";
+}
+
     // Eleccion del Usuario
 
     eleccionPiedra.addEventListener("click",()=>{
