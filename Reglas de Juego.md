@@ -11,5 +11,5 @@ El objetivo es vencer al oponente seleccionando el arma que gana, según las sig
 *La piedra aplasta la tijera. (Gana la piedra.)
 *La tijera corta el papel. (Gana la tijera.)
 *El papel envuelve la piedra. (Gana el papel.)
-*En caso de empate (que dos jugadores elijan el mismo elemento o que tres jugadores elijan cada uno un objeto distinto), se juega otra vez.
-*A veces, esto se repite hasta que uno de los jugadores gana con tres puntos
+*En caso de empate (que dos jugadores elijan el mismo elemento), se juega otra vez.
+*A veces, esto se repite hasta que uno de los jugadores gana con tres puntos,  y será entonces el vencedor del juego.
