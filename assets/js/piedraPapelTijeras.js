@@ -55,19 +55,22 @@ function jugarPiedraPapelTijera(jugadaUsuario){
    document.getElementById("jugada").innerHTML="La computadora: "+cantGanadaComputadora+" y el usuario: "+cantGanadaUsuario;
    if(cantGanadaComputadora===3){
    
-        document.getElementById("resultado").innerHTML="Perdiste el juego "+ nombreJugador.value +" Para la proxima";
+        document.getElementById("resultado").innerHTML="Perdiste el juego "+ nombreJugador.value +" para la proxima";
     } 
     if(cantGanadaUsuario===3){
         
-        document.getElementById("resultado").innerHTML="Ganaste "+ nombreJugador.value +" Felicitaciones...!!!"
+        document.getElementById("resultado").innerHTML="Ganaste "+ nombreJugador.value +" Felicitaciones...!!!";
     }
 }
 
 function reinicioJuego(){
+    cantGanadaComputadora=0;
+    cantGanadaUsuario=0;
     document.getElementById("jugadaPC").innerHTML="";
     document.getElementById("jugadaUsuario").innerHTML="";
     document.getElementById("jugada").innerHTML="";
     document.getElementById("resultado").innerHTML="";
+    
 }
 
     // Eleccion del Usuario
